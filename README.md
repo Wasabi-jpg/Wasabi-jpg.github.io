@@ -1,2 +1,2 @@
 To do:
-- Grid like card display for projects?
+- Grid like card display for projects? (DONE)
