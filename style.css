@@ -194,6 +194,9 @@ footer h4{
   box-shadow: 0 0 5px 2px rgba(50,50,50,0.25);
   position: absolute;
   backface-visibility: hidden; /* Hides the back side when not facing the screen, only works with 3D transformations such as rotateX/Y(degrees here) */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  overflow: hidden; /* Hide any overflow content */
+  padding: 0.5rem; /* Add padding to ensure content doesn't touch the edges */
 }
 
 .front{
