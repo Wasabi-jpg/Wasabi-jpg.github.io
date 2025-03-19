@@ -2,7 +2,7 @@
 body {
     
     font-family: Arial, sans-serif;
-    /* background-color: #111111; */
+    background-color: #111111;
     margin: 0;
     padding: 0px;
   }
@@ -155,12 +155,15 @@ footer h4{
 
 /* Testing new CSS for cards: */
 .pseudoBody{
+  /* height: 100vh; */
   background: linear-gradient(45def, #061de3, #e306ca);
   font-family: Arial, Helvetica, sans-serif;
   color: rgb(211,211,211);
   display: flex;
   justify-content: center; 
   align-items: center; /* aligning perpendicularly */
+  flex-wrap: wrap; /* Allows multiple cards to be displayed in a row */
+  gap: 2rem; /* Space between cards */
 }
 .container{
   margin: 0;
@@ -168,6 +171,7 @@ footer h4{
   box-sizing: border-box;
   width: 350px;
   height: 500px;
+  perspective:500px; /* Perspective for 3D effect */
 }
 
 .card_content{
@@ -175,9 +179,10 @@ footer h4{
   width: 100%;
   position: relative;
   transition: transform 1500ms;
+  transform-style: preserve-3d; /* Allows the back side to be visible when rotated */
 }
 
-.card_content:hover{
+.container:hover > .card_content{
   cursor: pointer;
   transform: rotateY(180deg)
 }
@@ -188,8 +193,50 @@ footer h4{
   border-radius: 2rem;
   box-shadow: 0 0 5px 2px rgba(50,50,50,0.25);
   position: absolute;
+  backface-visibility: hidden; /* Hides the back side when not facing the screen, only works with 3D transformations such as rotateX/Y(degrees here) */
 }
 
 .front{
-  background-image: url('https://i.redd.it/zu5c3yc21kbb1.jpg');
+  /* background-image: url('https://i.redd.it/zu5c3yc21kbb1.jpg'); */
+  background-image: linear-gradient(45deg, #061de3, #e306ca);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically (main axis due to flex-direction)*/
+  align-items: center; /* Center the content horizontally (cross axis due to flex-direction)*/
+  gap: 5rem;
+}
+
+.front h3{
+  font-size: 2rem;
+  color: #dbdbdb;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+.back{
+  background-color: #3a3a3a;
+  transform: rotateY(180deg);
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content vertically (main axis due to flex-direction)*/
+  align-items: center; /* Center the content horizontally (cross axis due to flex-direction)*/
+  gap: 5rem;
+}
+
+.back p, .front p{
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0 2rem;
+  color: #dbdbdb;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.back li{
+  font-size: 0.1 rem;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  color: #dbdbdb;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
