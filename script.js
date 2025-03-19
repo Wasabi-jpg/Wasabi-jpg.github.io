@@ -19,7 +19,7 @@ cards.forEach(card =>{
 });
 
 // For project cards
-const proj_cards = document.querySelectorAll(".project-card");
+const proj_cards = document.querySelectorAll(".pseudoBody");
 // println(cards);
 console.log("Number of cards " + proj_cards);
 const proj_observer = new IntersectionObserver(proj_entries => {
